@@ -1,0 +1,82 @@
+/* Futuristic design system with glassmorphism and neon effects */
+
+:root {
+  --netword-primary: #00FF88;
+  --netword-secondary: #0A0A0B;
+  --netword-accent: #00D4FF;
+  --netword-neutral: rgba(255, 255, 255, 0.05);
+  --netword-white: #FFFFFF;
+  --netword-dark: #000000;
+  --netword-glass: rgba(255, 255, 255, 0.08);
+  --netword-glow: rgba(0, 255, 136, 0.3);
+}
+
+* {
+  @apply border-slate-200;
+}
+
+body {
+  @apply bg-netword-secondary text-netword-white font-inter;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #0A0A0B 0%, #1a1a1b 50%, #0A0A0B 100%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-space font-bold;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 48px;
+  }
+}
+
+/* Smooth animations */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #00FF88, #00D4FF);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #00D4FF, #00FF88);
+}

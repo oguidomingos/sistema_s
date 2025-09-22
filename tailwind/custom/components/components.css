@@ -1,0 +1,379 @@
+/**
+ * Custom styles to immediately follow Tailwind’s `components` layer
+ *
+ * “Add more opinionated, complex classes like buttons, form controls, alerts,
+ * etc; the sort of pre-built components you often see in other frameworks that
+ * you might need to override with utility classes.”
+ *
+ * — from https://tailwindcss.com/docs/plugins#adding-components
+ */
+
+/**
+ * Post title styles
+ *
+ * These will be applied to all headings with a `page-title` or `entry-title`
+ * class on the frontend and to the post title in the block editor.
+ *
+ * The supplied styles are meant to match the default `h1` classes from
+ * Tailwind Typography.
+ */
+.page-title,
+.entry-title {
+	@apply max-w-content mx-auto mb-6 text-3xl font-extrabold text-neutral-900;
+}
+
+/**
+ * Layout styles for centered content areas
+ *
+ * If you are controlling the width of your content area with styles applied
+ * to its container, you can delete the following styles whose selectors begin
+ * with `.page-content >` and `.entry-content >`. For more details, please see
+ * the following:
+ *
+ * https://make.wordpress.org/core/2021/06/29/on-layout-and-content-width-in-wordpress-5-8/
+ */
+.page-content > *,
+.entry-content > * {
+	/* Content width from the `theme.json` file */
+	@apply max-w-content mx-auto;
+}
+
+.entry-content > .alignwide {
+	/* Wide width from the `theme.json` file */
+	@apply max-w-wide;
+}
+
+.entry-content > .alignfull {
+	@apply max-w-none;
+}
+
+.entry-content > .alignleft {
+	@apply float-left mr-8;
+}
+
+.entry-content > .alignright {
+	@apply float-right ml-8;
+}
+
+/**
+ * Timeline specific styles for Legal Timeline component
+ */
+.timeline-pulse {
+	animation: timeline-pulse 2s ease-in-out infinite;
+}
+
+@keyframes timeline-pulse {
+	0%, 100% {
+		box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+		transform: scale(1);
+	}
+	50% {
+		box-shadow: 0 0 40px rgba(34, 197, 94, 0.6), 0 0 60px rgba(34, 197, 94, 0.3);
+		transform: scale(1.05);
+	}
+}
+
+.animate-green-glow {
+	animation: green-glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes green-glow-pulse {
+	0%, 100% {
+		box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+	}
+	50% {
+		box-shadow: 0 0 40px rgba(34, 197, 94, 0.6), 0 0 60px rgba(34, 197, 94, 0.3);
+	}
+}
+
+.timeline-text-glow {
+	text-shadow:
+		0 0 10px rgba(34, 197, 94, 0.5),
+		0 0 20px rgba(34, 197, 94, 0.3),
+		0 0 30px rgba(34, 197, 94, 0.2);
+}
+
+/* Enhanced animation for timeline items */
+.timeline-item {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: all 0.6s ease-out;
+}
+
+.timeline-item.animate-fade-in {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Hover effects for timeline cards */
+.timeline-item .glass-card:hover {
+	transform: translateY(-4px) scale(1.02);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 30px rgba(34, 197, 94, 0.1);
+}
+
+/* Section spacing utilities for better layout */
+.section-spacing {
+	@apply py-16 md:py-20 lg:py-24;
+}
+
+.section-spacing-sm {
+	@apply py-12 md:py-16 lg:py-20;
+}
+
+.section-spacing-lg {
+	@apply py-20 md:py-24 lg:py-32;
+}
+
+/* Container with better responsive spacing */
+.container-spacing {
+	@apply px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16;
+}
+
+/* Card spacing utilities */
+.card-spacing {
+	@apply p-6 md:p-8 lg:p-10;
+}
+
+.card-spacing-sm {
+	@apply p-4 md:p-6 lg:p-8;
+}
+
+/* Grid responsive utilities */
+.grid-responsive {
+	@apply grid gap-6 md:gap-8 lg:gap-10;
+}
+
+.grid-responsive-lg {
+	@apply grid gap-8 md:gap-10 lg:gap-12;
+}
+
+/* Text spacing utilities */
+.text-spacing {
+	@apply space-y-4 md:space-y-6;
+}
+
+.text-spacing-lg {
+	@apply space-y-6 md:space-y-8 lg:space-y-10;
+}
+
+/* Better mobile spacing for elements */
+@media (max-width: 768px) {
+	.mobile-spacing {
+		@apply space-y-4;
+	}
+	
+	.mobile-card-spacing {
+		@apply p-4;
+	}
+	
+	.mobile-text-sm {
+		@apply text-sm;
+	}
+}
+
+/* Minimal glass card - only basic effects, with transparent background */
+.glass-card {
+	@apply backdrop-blur-xl border border-white/[0.08] rounded-xl;
+	background: rgba(255, 255, 255, 0.02);
+	box-shadow:
+		0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Glass card variants with minimal transparency */
+.glass-card-lg {
+	@apply backdrop-blur-xl border border-white/[0.08] rounded-2xl;
+	@apply p-6 md:p-8 lg:p-12;
+	background: rgba(255, 255, 255, 0.02);
+	box-shadow:
+		0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-card-md {
+	@apply backdrop-blur-xl border border-white/[0.08] rounded-xl;
+	@apply p-4 md:p-6 lg:p-8;
+	background: rgba(255, 255, 255, 0.02);
+	box-shadow:
+		0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-card-sm {
+	@apply backdrop-blur-xl border border-white/[0.08] rounded-lg;
+	@apply p-3 md:p-4 lg:p-6;
+	background: rgba(255, 255, 255, 0.02);
+	box-shadow:
+		0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Glass card variants with colored backgrounds */
+.glass-card-green {
+	@apply backdrop-blur-xl border border-green-400/40 rounded-xl;
+	background: rgba(34, 197, 94, 0.05);
+	box-shadow:
+		0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-card-red {
+	@apply backdrop-blur-xl border border-red-400/40 rounded-xl;
+	background: rgba(248, 113, 113, 0.05);
+	box-shadow:
+		0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-card-yellow {
+	@apply backdrop-blur-xl border border-yellow-400/40 rounded-xl;
+	background: rgba(250, 204, 21, 0.05);
+	box-shadow:
+		0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Design System - Consistent Spacing Patterns */
+
+/* Element spacing utilities following design hierarchy */
+.element-spacing-xs {
+	@apply space-y-2 md:space-y-3;
+}
+
+.element-spacing-sm {
+	@apply space-y-3 md:space-y-4;
+}
+
+.element-spacing-md {
+	@apply space-y-4 md:space-y-6;
+}
+
+.element-spacing-lg {
+	@apply space-y-6 md:space-y-8;
+}
+
+.element-spacing-xl {
+	@apply space-y-8 md:space-y-10 lg:space-y-12;
+}
+
+/* Margin utilities following design patterns */
+.margin-section {
+	@apply mb-8 md:mb-12 lg:mb-16;
+}
+
+.margin-subsection {
+	@apply mb-6 md:mb-8 lg:mb-10;
+}
+
+.margin-element {
+	@apply mb-4 md:mb-6;
+}
+
+.margin-small {
+	@apply mb-2 md:mb-3 lg:mb-4;
+}
+
+/* Padding utilities for content areas */
+.content-padding-lg {
+	@apply px-6 py-8 md:px-8 md:py-10 lg:px-12 lg:py-14;
+}
+
+.content-padding-md {
+	@apply px-4 py-6 md:px-6 md:py-8 lg:px-8 lg:py-10;
+}
+
+.content-padding-sm {
+	@apply px-3 py-4 md:px-4 md:py-6 lg:px-6 lg:py-8;
+}
+
+/* Hero section specific spacing */
+.hero-content-spacing {
+	@apply space-y-6 md:space-y-8 lg:space-y-10;
+}
+
+.hero-padding {
+	@apply pt-20 pb-16 md:pt-24 md:pb-20 lg:pt-32 lg:pb-24;
+}
+
+/* Timeline specific spacing */
+.timeline-spacing {
+	@apply space-y-8 md:space-y-12 lg:space-y-16 xl:space-y-20;
+}
+
+.timeline-card-spacing {
+	@apply p-4 md:p-6 lg:p-8 space-y-3 md:space-y-4;
+}
+
+/* Form specific spacing */
+.form-spacing {
+	@apply space-y-4 md:space-y-6;
+}
+
+.form-field-spacing {
+	@apply space-y-2;
+}
+
+/* Grid spacing following design system */
+.grid-spacing-sm {
+	@apply gap-4 md:gap-6;
+}
+
+.grid-spacing-md {
+	@apply gap-6 md:gap-8;
+}
+
+.grid-spacing-lg {
+	@apply gap-8 md:gap-10 lg:gap-12;
+}
+
+/* Mobile-first responsive typography */
+@media (max-width: 640px) {
+	h1 {
+		@apply text-2xl leading-tight;
+	}
+	
+	h2 {
+		@apply text-xl leading-tight;
+	}
+	
+	h3 {
+		@apply text-lg leading-tight;
+	}
+	
+	.text-4xl {
+		@apply text-2xl;
+	}
+	
+	.text-5xl {
+		@apply text-3xl;
+	}
+	
+	.text-6xl {
+		@apply text-4xl;
+	}
+}
+
+/* Improved button with consistent spacing */
+.glass-button {
+	@apply backdrop-blur-xl bg-gradient-to-r from-netword-primary to-netword-accent text-netword-dark font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg;
+	@apply px-6 py-3 md:px-8 md:py-4;
+	@apply text-sm md:text-base lg:text-lg;
+}
+
+/* Better flex layouts for mobile */
+@media (max-width: 768px) {
+	.flex-mobile-col {
+		@apply flex-col space-y-4;
+	}
+	
+	.grid-mobile-1 {
+		@apply grid-cols-1;
+	}
+}

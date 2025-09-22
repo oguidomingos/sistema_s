@@ -1,0 +1,203 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic design system with glassmorphism and neon effects */
+
+@layer base {
+  :root {
+    --background: 10 10% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 142 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 6%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 195 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 142 100% 50%;
+
+    --radius: 12px;
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 142 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 142 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-netword-secondary text-netword-white font-inter;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #0A0A0B 0%, #1a1a1b 50%, #0A0A0B 100%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-space font-bold;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 20px;
+    }
+  }
+}
+
+@layer utilities {
+  .section-spacing {
+    @apply py-section;
+  }
+
+  @media (max-width: 1024px) {
+    .section-spacing {
+      @apply py-16;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-spacing {
+      @apply py-section-mobile;
+    }
+  }
+
+  .glass-card {
+    @apply backdrop-blur-xl border border-white/10 bg-white/5;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-button {
+    @apply backdrop-blur-xl border border-netword-primary/30 bg-netword-primary/10 text-netword-primary;
+    box-shadow: 
+      0 4px 16px rgba(0, 255, 136, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .glass-button:hover {
+    @apply bg-netword-primary text-netword-dark border-netword-primary;
+    box-shadow: 
+      0 8px 32px rgba(0, 255, 136, 0.4),
+      0 0 20px rgba(0, 255, 136, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .neon-text {
+    text-shadow: 
+      0 0 10px rgba(0, 255, 136, 0.5),
+      0 0 20px rgba(0, 255, 136, 0.3),
+      0 0 30px rgba(0, 255, 136, 0.2);
+  }
+
+  .neon-border {
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    box-shadow: 
+      0 0 10px rgba(0, 255, 136, 0.2),
+      inset 0 0 10px rgba(0, 255, 136, 0.1);
+  }
+
+  .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .hologram-effect {
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(0, 255, 136, 0.1) 50%,
+      transparent 70%
+    );
+    background-size: 200% 200%;
+    animation: hologram 3s ease-in-out infinite;
+  }
+
+  @keyframes hologram {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #00FF88, #00D4FF, #FFFFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tech-border {
+    position: relative;
+  }
+
+  .tech-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: linear-gradient(135deg, #00FF88, #00D4FF);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #00FF88, #00D4FF);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #00D4FF, #00FF88);
+}
+
+/* Smooth animations */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
